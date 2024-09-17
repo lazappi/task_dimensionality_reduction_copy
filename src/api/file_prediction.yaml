@@ -1,11 +1,16 @@
 #TODO: Change to the required and/or optional fields of the anndata
 type: file
-example: resources/score.h5ad
-label: Score
-summary: "File indicating the score of a metric."
+example: "resources_test/task_template/pancreas/prediction.h5ad"
+label: "Predicted data"
+summary: A predicted dataset as output by a method.
 info:
   format:
     type: h5ad
+    obs:
+      - type: string
+        name: label_pred
+        description: Predicted labels for the test cells.
+        required: true
     uns:
       - type: string
         name: dataset_id
@@ -18,14 +23,4 @@ info:
       - type: string
         name: method_id
         description: "A unique identifier for the method"
-        required: true
-      - type: string
-        name: metric_ids
-        description: "One or more unique metric identifiers"
-        multiple: true
-        required: true
-      - type: double
-        name: metric_values
-        description: "The metric values obtained for the given prediction. Must be of same length as 'metric_ids'."
-        multiple: true
         required: true

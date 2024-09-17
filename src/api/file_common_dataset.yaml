@@ -1,7 +1,7 @@
 type: file
 example: "resources_test/common/pancreas/dataset.h5ad"
-label: "Dataset"
-summary: "The dataset to pass to a method."
+label: "Common Dataset"
+summary: A subset of the common dataset.
 info:
   format:
     type: h5ad
@@ -17,12 +17,25 @@ info:
     obs:
       - type: string
         name: cell_type
-        description: Classification of the cell type based on its characteristics and function within the tissue or organism.
+        description: Cell type information
+        required: true
+      - type: string
+        name: batch
+        description: Batch information
         required: true
     var:
+      - type: boolean
+        name: hvg
+        description: Whether or not the feature is considered to be a 'highly variable gene'
+        required: true
       - type: double
         name: hvg_score
-        description: High variability gene score (normalized dispersion). The greater, the more variable.
+        description: A ranking of the features by hvg.
+        required: true
+    obsm:
+      - type: double
+        name: X_pca
+        description: The resulting PCA embedding.
         required: true
     uns:
       - type: string
