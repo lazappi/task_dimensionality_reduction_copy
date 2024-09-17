@@ -27,4 +27,4 @@ jobs:
         uses: AndreasAugustin/actions-template-sync@v2
         with:
           source_repo_path: lazappi/task_template
-          is_dry_run: true
+          is_pr_cleanup: true
